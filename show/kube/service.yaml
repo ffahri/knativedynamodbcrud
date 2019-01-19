@@ -1,0 +1,33 @@
+apiVersion: federation.knative.dev/v1alpha1
+kind: FederatedService
+metadata:
+  name: f1cfca943-4807-470d-8e1c-1befddb437d9
+  namespace: 285c5af8-3a7f-4a1a-bccd-4cfb0ffe2c82
+spec:
+  template:
+    metadata:
+      name: f1cfca943-4807-470d-8e1c-1befddb437d9
+    spec:
+      runLatest:
+        configuration:
+          revisionTemplate:
+            spec:
+              container:
+                image: gcr.io/dynamic-now-218617/285c5af8-3a7f-4a1a-bccd-4cfb0ffe2c82:f1cfca943-4807-470d-8e1c-1befddb437d9
+                env:
+                - name: AWS_KEY_ID
+                  value: ""
+                - name: AWS_ACCESS_KEY
+                  value: ""
+
+---
+apiVersion: federation.knative.dev/v1alpha1
+kind: FederatedServicePlacement
+metadata:
+  name: f1cfca943-4807-470d-8e1c-1befddb437d9
+  namespace: 285c5af8-3a7f-4a1a-bccd-4cfb0ffe2c82
+spec:
+   clusterNames:
+   - cluster2
+   - cluster1
+   - cluster33
