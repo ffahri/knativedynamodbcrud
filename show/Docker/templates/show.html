@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+   <title>TEZ SUNUM - REST DEMO</title>
+   <style type="text/css">
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+ tr:hover {background-color: #999900;} 
+   </style>
+   </head>
+   <body>
+      <table border = 1>
+         <tr>
+            <td>UUID</td>
+            <td>MESSAGE</td>
+         {% for item in list %}
+            
+            <tr>
+               <td><b> {{ item['uuid'] }}</b> </td>
+               <td><b> {{ item['message'] }}</b> </td>
+            </tr>
+     
+                  {% endfor %}
+
+      </table>
+
+      <h3>Kayıt Ekle </h3>
+       <form action="http://restkayit.demo.fahri.pw" method=post>
+    <dl>
+      <dt>Mesaj:
+      <dd><input type=text name=message>
+      <dd><input type=submit value=Ekle>
+    </dl>
+  </form>
+   </body>
+</html>
